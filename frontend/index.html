@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A small Cloudflare Pages + Cloud Run + Supabase demo app">
+  <title>Task Board</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="eyebrow">CLOUDFLARE PAGES · CLOUD RUN · SUPABASE</div>
+      <h1>Simple Task Board</h1>
+      <p>A small demo showing a static frontend calling a Node.js API backed by PostgreSQL.</p>
+      <div id="api-status" class="status" role="status">Checking API…</div>
+    </header>
+
+    <section class="panel">
+      <h2>Add a task</h2>
+      <form id="task-form">
+        <label for="task-title">Task title</label>
+        <div class="form-row">
+          <input id="task-title" name="title" maxlength="200" placeholder="e.g. Review deployment" required>
+          <button type="submit">Add task</button>
+        </div>
+      </form>
+      <p id="message" class="message" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <div class="list-heading">
+        <h2>Your tasks</h2>
+        <button id="refresh-button" class="secondary" type="button">Refresh</button>
+      </div>
+      <ul id="task-list" class="task-list">
+        <li class="empty">Loading tasks…</li>
+      </ul>
+    </section>
+
+    <footer>Demo only. Add authentication and authorization before storing private data.</footer>
+  </main>
+</body>
+</html>
